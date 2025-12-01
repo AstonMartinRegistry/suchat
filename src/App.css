@@ -1,0 +1,212 @@
+.app {
+  min-height: 100vh;
+  background: #000;
+  color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Mono', 'Menlo',
+    monospace;
+}
+
+.frame {
+  width: min(900px, 100vw - 32px);
+  height: min(620px, 100vh - 32px);
+  border: 2px solid #f5f5f5;
+  box-shadow: 0 0 0 2px #000, 0 0 0 4px #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 2px solid #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  border: 1px solid #f5f5f5;
+  background: transparent;
+}
+
+.status-connecting {
+  background: #f5f5f5;
+  animation: blink 0.4s steps(2, start) infinite;
+}
+
+.status-waiting {
+  background: #f5f5f5;
+}
+
+.status-paired {
+  background: #0f0;
+  border-color: #0f0;
+}
+
+.status-disconnected {
+  background: #000;
+}
+
+.status-text {
+  opacity: 0.8;
+}
+
+.chat-area {
+  flex: 1;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.messages {
+  height: 100%;
+  border: 2px solid #f5f5f5;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.5;
+  background: #000;
+}
+
+.system-line {
+  color: #aaa;
+  text-transform: lowercase;
+}
+
+.ghost-text {
+  color: #f5f5f5;
+}
+
+.msg-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.msg-me {
+  justify-content: flex-end;
+}
+
+.msg-me .msg-badge {
+  order: 2;
+}
+
+.msg-me .msg-bubble {
+  order: 1;
+  background: #f5f5f5;
+  color: #000;
+}
+
+.msg-them .msg-badge {
+  color: #0f0;
+}
+
+.msg-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-top: 2px;
+}
+
+.msg-bubble {
+  max-width: 70%;
+  border: 1px solid #f5f5f5;
+  padding: 6px 8px;
+  white-space: pre-wrap;
+}
+
+.bottom-bar {
+  border-top: 2px solid #f5f5f5;
+  padding: 10px 14px;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.input {
+  flex: 1;
+  background: #000;
+  color: #f5f5f5;
+  border: 2px solid #f5f5f5;
+  resize: none;
+  padding: 6px 8px;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.input:disabled {
+  opacity: 0.4;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.button {
+  background: #f5f5f5;
+  color: #000;
+  border: 2px solid #f5f5f5;
+  padding: 6px 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  min-width: 96px;
+}
+
+.button.secondary {
+  background: #000;
+  color: #f5f5f5;
+}
+
+.button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.button:not(:disabled):active {
+  transform: translate(1px, 1px);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 720px) {
+  .frame {
+    height: calc(100vh - 24px);
+  }
+
+  .controls {
+    flex-direction: row;
+  }
+
+  .button {
+    min-width: 0;
+  }
+}
